@@ -36,7 +36,17 @@
     - //删除远程库中的master分支
     - // origin  远程库 别名
 
-
++ git pull = fetch + merge
+  + git pull <远程主机名> <远程分支名>:<本地分支名>
++ git fetch  获取远程库分支
+  - git fetch origin branch1 //查看远程branch1分支是否存在，不会再本地创建分支
+  - git fecth origin branch1:local1 //从远程branch1 获取代码，并再本地创建local1分支
+    - 如果本地不存在branch2分支, 则会自动创建一个新的branch2分支
+    - 如果本地存在branch2分支, 并且是`fast forward', 则自动合并两个分支, 否则, 会阻止以上操作.、
+  - git fetch origin :branch2 等价于: git fetch origin master:branch2
+  - fetch 近是获取，获取分支之后，通过merge与本地合并
+    - git fetch [alias]
+    - git merge [alias]/[branch]  // [alias]/[branch]远程分支
 
 # 分支
 ## 概述
