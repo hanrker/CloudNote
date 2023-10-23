@@ -1,0 +1,11 @@
+@echo off 
+title ‘start flyview_api’
+
+timeout 1
+net stop  
+
+timeout 5
+
+net start
+
+Start main.lnk

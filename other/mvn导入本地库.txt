@@ -1,0 +1,9 @@
+mvn install:install-file "-Dfile=E:\HKFiles\B2Gap\GProject\Alist\20221208_XDD_ccs\Develop\com.sun.jna.examples-1.0.0.jar" "-DgroupId=com.sun.jna.examples" "-DartifactId=com.sun.jna.examples"  "-Dversion=1.0.0"  "-Dpackaging=jar"
+
+
+mvn install:install-file "-Dfile=E:\HKFiles\B2Gap\GProject\Alist\20221208_XDD_ccs\Develop\com.sun.jna-1.0.0.jar" "-DgroupId=com.sun.jna" "-DartifactId=com.sun.jna"  "-Dversion=1.0.0"  "-Dpackaging=jar"
+
+
+
+mvn install:install-file "-Dfile=E:\HKFiles\B2Gap\GProject\Alist\20221208_XDD_ccs\Develop\org.json-1.0.0.jar" "-DgroupId=org.json" "-DartifactId=org.json"  "-Dversion=1.0.0"  "-Dpackaging=jar"
+
