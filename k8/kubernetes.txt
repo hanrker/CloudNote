@@ -1,0 +1,40 @@
+# kubectl  ：Kubernetes的命令行工具（CLI）
+## 命令参考
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-
+## 命令
++ kubectl apply -f bb.yaml	#应用配置
++ kubectl get deployments 	#获取部署
++ kubectl get services			#获取服务
+## 配置文件
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: bb-demo
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         bb: web
+   template:
+      metadata:
+         labels:
+            bb: web
+      spec:
+         containers:
+            - name: bb-site
+              image: getting-started
+              imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - name: http-port
+      port: 80 				# 这里是服务端口，不是容器端口或主机端口。
+      targetPort: 80 		# 这里指定了服务将访问后端Pod的哪个容器端口。
+		  nodePort:30001			#  node 对外暴漏的端口

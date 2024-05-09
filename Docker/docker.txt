@@ -1,7 +1,10 @@
-  # 操作系统
+# 操作系统
 ## ubuntu
 docker run -it --name ubuntu ubuntu
 docker exec -it ubuntu /bin/bash
+
+## nginx + 前端web
+docker run -it -d --name nginx-test -v /Usrs/hanrker/nginx/:etc/nginx -v home/app/log:etc/nginx/log -v hostpath/html:usr/share/nginx/html  nginx:latest
 
 ## Alpine
 docker run -it --name alpine alpine
@@ -16,7 +19,7 @@ docker exec -it mysql bash
 
 ## postgres
 ### 运行
-docker run -it  --name postgres2 --restart always -e POSTGRES_PASSWORD=123456 -e ALLOW_IP_RANGE=0.0.0.0/0 -v /Users/hanrker/temp/postgres/:/var/lib/postgresql/data  -p 5432:5432 -d postgres
+docker run -it  --name postgres --restart always -e POSTGRES_PASSWORD=123456 -e ALLOW_IP_RANGE=0.0.0.0/0 -v /Users/hanrker/temp/postgres/:/var/lib/postgresql/data  -p 5432:5432 -d postgres
 
 -e ALLOW_IP_RANGE=0.0.0.0/0:设置环境变了，允许所有ip访问
 
@@ -32,7 +35,11 @@ docker exec postgres base
 docker run --rm -it -v "$(pwd)":/Users/hanrker/project/Test/demo -w /Users/hanrker/project/Test/demo maven:latest mvn package 
 -w :进入工作目录
 
+## python 开发环境
+docker run -it --name python_ai  -v /Users/hanrker/Knowlage/Note/AI/test:/home/ai --env="DISPLAY=$DISPLAY" python_ai:v1
 
+## mongo
+docker run -it --name mongo -v /Users/hanrker/doc/mongo/data/db:/data/db -p 27017:27017 mongo:latest
 
 #基础
 run：运行容器
@@ -45,3 +52,4 @@ run 不加-it会立即退出，可以加-d 表示后台运行容器，-p表示�
 start -i :交互式启动
 
 docker buildx build --platform linux/amd64 --tag alpine_amd64:test . --load
+docker buildx build --platform linux/arm64 --tag dm8:arm64 . --load
